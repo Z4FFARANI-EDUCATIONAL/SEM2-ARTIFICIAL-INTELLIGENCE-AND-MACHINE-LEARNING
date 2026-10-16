@@ -19,6 +19,22 @@ Comparação entre uma abordagem supervisionada e uma não supervisionada em um 
 - **Tecnologias:** Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn (LogisticRegression, IsolationForest, PCA, StandardScaler, Pipeline).
 - **Arquivo Principal:** `CP4-AI.ipynb`
 
+## CHECKPOINT 5 (CP5)
+
+**Projeto: Análise do MNIST com Redes Neurais MLP**
+
+Estudo de como a arquitetura, os hiperparâmetros de treinamento e a regularização afetam uma MLP em PyTorch na classificação de dígitos manuscritos.
+
+- **Descrição:**
+  - **Implementação base:** normalização, divisão estratificada em treino/validação/teste e baseline MLP 1×128 (97,61% no teste), com uma régua de ruído entre sementes para separar diferenças reais de variação aleatória.
+  - **Arquitetura:** 12 redes de 1 a 3 camadas ocultas e 64 a 512 neurônios. A largura ajuda até cerca de 256 neurônios (ponto de saturação); a profundidade não trouxe ganho.
+  - **Hiperparâmetros de treinamento:** 12 combinações de taxa de aprendizado (0,1; 0,01; 0,001) e tamanho do lote (32 a 256), analisando convergência, estabilidade e desempenho final. A taxa 0,1 diverge; a combinação mais estável foi taxa 0,001 com lote 256.
+  - **Regularização:** Dropout e L2 em doses moderadas e excessivas. As doses moderadas adiam o overfitting sem aumentar a acurácia; as excessivas causam underfitting.
+  - **Avaliação e análise crítica:** matrizes de confusão dos 33 experimentos e pares de dígitos mais confundidos (4 e 9 entre os 3 erros mais comuns em 26 de 28 experimentos). Modelo final MLP 2×512 com 98,23% no teste (177 erros em 10.000 imagens).
+- **Dataset:** [MNIST](https://pytorch.org/vision/stable/generated/torchvision.datasets.MNIST.html) — 70.000 imagens 28×28 de dígitos manuscritos (60.000 de treino e 10.000 de teste), obtido via `torchvision`.
+- **Tecnologias:** Python, PyTorch, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn (train_test_split, confusion_matrix, classification_report).
+- **Arquivo Principal:** `CP5-AI.ipynb`
+
 ## CHALLENGE
 
 **Projeto: Previsão de evasão da rede oficial Ford (VIN Share) — Ford FIAP 2026, Sprint 3**
